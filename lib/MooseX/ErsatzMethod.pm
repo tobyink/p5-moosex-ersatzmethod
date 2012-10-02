@@ -7,7 +7,7 @@ use utf8;
 
 BEGIN {
 	$MooseX::ErsatzMethod::AUTHORITY = 'cpan:TOBYINK';
-	$MooseX::ErsatzMethod::VERSION   = '0.002';
+	$MooseX::ErsatzMethod::VERSION   = '0.003';
 }
 
 my %METAROLES;
@@ -54,7 +54,7 @@ BEGIN {
 	package MooseX::ErsatzMethod::Trait::Role;
 	no thanks;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.002';
+	our $VERSION   = '0.003';
 	use Moose::Role;
 	has ersatz_methods => (
 		traits     => ['Hash'],
@@ -91,7 +91,7 @@ BEGIN {
 	package MooseX::ErsatzMethod::Trait::Composite;
 	no thanks;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.002';
+	our $VERSION   = '0.003';
 	use Moose::Role;
 	with qw(MooseX::ErsatzMethod::Trait::Role);
 	around apply_params => sub
@@ -125,7 +125,7 @@ BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToClass;
 	no thanks;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.002';
+	our $VERSION   = '0.003';
 	use Moose::Role;
 	before apply => sub
 	{
@@ -142,7 +142,7 @@ BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToRole;
 	no thanks;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.002';
+	our $VERSION   = '0.003';
 	use Moose::Role;
 	before apply => sub
 	{
@@ -159,7 +159,7 @@ BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToInstance;
 	no thanks;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.002';
+	our $VERSION   = '0.003';
 	use Moose::Role;
 };
 

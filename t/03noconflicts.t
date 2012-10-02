@@ -91,14 +91,14 @@ BEGIN {
 }
 
 ok(
-	$_->new->foo ~~ 1,
+	$_->new->foo == 1,
 	$_,
 ) for qw(
 	Local::Test::Class::WithRole1
 );
 
 ok(
-	($_->new->foo ~~ [qw( 1 2 )]),
+	$_->new->foo == 1 || $_->new->foo == 2,
 	$_,
 ) for qw(
 	Local::Test::Class::WithRole1AndRole2

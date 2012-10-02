@@ -75,7 +75,11 @@ BEGIN {
 	sub apply_all_ersatz_methods_to_class
 	{
 		my ($self, $class) = @_;
-		$_->apply_to_class($class) for $self->all_ersatz_methods;
+		for ($self->all_ersatz_methods)
+		{
+			next if $self->has_method($_->name);
+			$_->apply_to_class($class);
+		}
 	}
 	sub composition_class_roles
 	{
@@ -282,7 +286,8 @@ object and adds it to the C<ersatz_methods> hash.
 =item C<< apply_all_ersatz_methods_to_class($class) >>
 
 Given a Moose::Meta::Class object, iterates through C<all_ersatz_methods>
-applying each to the class.
+applying each to the class. This procedure skips any ersatz method for which
+this role can provide a real method.
 
 =back
 
@@ -314,6 +319,11 @@ Given a Moose::Meta::Class object, installs this method into the class
 unless the class (or a superclass) already has a method of that name.
 
 =back
+
+=head1 CAVEATS
+
+  with 'Role1';  with 'Role2';   # No!
+  with qw( Role1 Role2 );        # Yes
 
 =head1 BUGS
 

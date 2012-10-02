@@ -53,6 +53,8 @@ BEGIN {
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::Role;
 	no thanks;
+	our $AUTHORITY = 'cpan:TOBYINK';
+	our $VERSION   = '0.001';
 	use Moose::Role;
 	has ersatz_methods => (
 		traits     => ['Hash'],
@@ -84,6 +86,8 @@ BEGIN {
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::Composite;
 	no thanks;
+	our $AUTHORITY = 'cpan:TOBYINK';
+	our $VERSION   = '0.001';
 	use Moose::Role;
 	with qw(MooseX::ErsatzMethod::Trait::Role);
 	around apply_params => sub
@@ -116,6 +120,8 @@ BEGIN {
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToClass;
 	no thanks;
+	our $AUTHORITY = 'cpan:TOBYINK';
+	our $VERSION   = '0.001';
 	use Moose::Role;
 	before apply => sub
 	{
@@ -131,6 +137,8 @@ BEGIN {
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToRole;
 	no thanks;
+	our $AUTHORITY = 'cpan:TOBYINK';
+	our $VERSION   = '0.001';
 	use Moose::Role;
 	before apply => sub
 	{
@@ -146,6 +154,8 @@ BEGIN {
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToInstance;
 	no thanks;
+	our $AUTHORITY = 'cpan:TOBYINK';
+	our $VERSION   = '0.001';
 	use Moose::Role;
 };
 

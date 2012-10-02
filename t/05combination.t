@@ -45,6 +45,6 @@ ok eval {
 };
 
 is(
-	Local::Test::Class1->new->foo,
+	Local::Test::Class2->new->foo,
 	2,
 );

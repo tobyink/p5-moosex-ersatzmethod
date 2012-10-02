@@ -4,3 +4,9 @@
 	issued  2012-10-02;
 	label   "Initial release".
 
+`MooseX-ErsatzMethod 0.002 cpan:TOBYINK`
+	issued  2012-10-02;
+	changeset [
+		item "Improved test suite."^^Packaging;
+		item "When classes consume roles which provide an ersatz method plus a real implementation, they should get the real implementation. Yes this does happen - e.g. when roles are composed."^^Bugfix;
+	].

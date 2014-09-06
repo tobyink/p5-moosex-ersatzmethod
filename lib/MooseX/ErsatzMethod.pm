@@ -1,13 +1,12 @@
-package MooseX::ErsatzMethod;
-
 use 5.008;
 use strict;
 use warnings;
-use utf8;
+
+package MooseX::ErsatzMethod;
 
 BEGIN {
 	$MooseX::ErsatzMethod::AUTHORITY = 'cpan:TOBYINK';
-	$MooseX::ErsatzMethod::VERSION   = '0.003';
+	$MooseX::ErsatzMethod::VERSION   = '0.004';
 }
 
 my %METAROLES;
@@ -27,7 +26,7 @@ use Moose::Exporter;
 BEGIN {
 	package MooseX::ErsatzMethod::Meta::Method;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.003';
+	our $VERSION   = '0.004';
 	use Moose;
 	has code => (
 		is         => 'ro',
@@ -56,7 +55,7 @@ BEGIN {
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::Role;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.003';
+	our $VERSION   = '0.004';
 	use Moose::Role;
 	has ersatz_methods => (
 		traits     => ['Hash'],
@@ -93,7 +92,7 @@ BEGIN {
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::Composite;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.003';
+	our $VERSION   = '0.004';
 	use Moose::Role;
 	with qw(MooseX::ErsatzMethod::Trait::Role);
 	around apply_params => sub
@@ -127,7 +126,7 @@ BEGIN {
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToClass;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.003';
+	our $VERSION   = '0.004';
 	use Moose::Role;
 	before apply => sub
 	{
@@ -144,7 +143,7 @@ BEGIN {
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToRole;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.003';
+	our $VERSION   = '0.004';
 	use Moose::Role;
 	before apply => sub
 	{
@@ -161,7 +160,7 @@ BEGIN {
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToInstance;
 	our $AUTHORITY = 'cpan:TOBYINK';
-	our $VERSION   = '0.003';
+	our $VERSION   = '0.004';
 	use Moose::Role;
 	$INC{ Module::Runtime::module_notional_filename(__PACKAGE__) } ||= __FILE__;
 };
@@ -325,6 +324,9 @@ unless the class (or a superclass) already has a method of that name.
 
 =head1 CAVEATS
 
+If you use one-at-a-time role composition, then ersatz methods in one
+role might end up "beating" a proper method provided by another role.
+
   with 'Role1';  with 'Role2';   # No!
   with qw( Role1 Role2 );        # Yes
 
@@ -345,7 +347,7 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT AND LICENCE
 
-This software is copyright (c) 2012 by Toby Inkster.
+This software is copyright (c) 2012, 2014 by Toby Inkster.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

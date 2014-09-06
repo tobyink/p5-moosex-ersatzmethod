@@ -16,3 +16,10 @@
 	changeset [
 		item "Remove smartmatch usage from test suite, for Perl 5.8 compatibility."^^Bugfix;
 	].
+
+`MooseX-ErsatzMethod 0.004 cpan:TOBYINK`
+	issued  2014-09-06;
+	changeset [
+		item "Drop the dependency on thanks.pm; use Module::Runtime (which Moose already requires) instead."^^Change;
+		item "use Dist::Inkt."^^Packaging;
+	].

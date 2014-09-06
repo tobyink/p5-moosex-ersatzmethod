@@ -1,11 +1,9 @@
 # This file provides instructions for packaging.
 
+@prefix : <http://ontologi.es/doap-deps#> .
+
 `MooseX-ErsatzMethod`
-	perl_version_from m`MooseX::ErsatzMethod`;
-	version_from      m`MooseX::ErsatzMethod`;
-	readme_from       m`MooseX::ErsatzMethod`;
-	test_requires     p`Test::More 0.61`;
-	requires          p`Moose 2.00`;
-	requires          p`Module::Runtime`;
-	.
+	:test-requirement       [ :on "Test::More 0.61"^^:CpanId ];
+	:runtime-requirement    [ :on "Moose 2.00"^^:CpanId ];
+	:runtime-requirement    [ :on "Module::Runtime"^^:CpanId ].
 

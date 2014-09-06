@@ -5,7 +5,7 @@
 	version_from      m`MooseX::ErsatzMethod`;
 	readme_from       m`MooseX::ErsatzMethod`;
 	test_requires     p`Test::More 0.61`;
-	requires          p`thanks`;
 	requires          p`Moose 2.00`;
+	requires          p`Module::Runtime`;
 	.
 

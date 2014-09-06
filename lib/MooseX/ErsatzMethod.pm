@@ -20,12 +20,14 @@ BEGIN {
 	)
 };
 
+use Module::Runtime ();
 use Moose ();
 use Moose::Exporter;
 
 BEGIN {
 	package MooseX::ErsatzMethod::Meta::Method;
-	no thanks;
+	our $AUTHORITY = 'cpan:TOBYINK';
+	our $VERSION   = '0.003';
 	use Moose;
 	has code => (
 		is         => 'ro',
@@ -48,11 +50,11 @@ BEGIN {
 		return if $class->find_method_by_name($self->name);
 		$class->add_method($self->name, $self->code);
 	}
+	$INC{ Module::Runtime::module_notional_filename(__PACKAGE__) } ||= __FILE__;
 }
 
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::Role;
-	no thanks;
 	our $AUTHORITY = 'cpan:TOBYINK';
 	our $VERSION   = '0.003';
 	use Moose::Role;
@@ -85,11 +87,11 @@ BEGIN {
 	{
 		return 'MooseX::ErsatzMethod::Trait::Composite';
 	}
+	$INC{ Module::Runtime::module_notional_filename(__PACKAGE__) } ||= __FILE__;
 };
 
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::Composite;
-	no thanks;
 	our $AUTHORITY = 'cpan:TOBYINK';
 	our $VERSION   = '0.003';
 	use Moose::Role;
@@ -119,11 +121,11 @@ BEGIN {
 			$self->add_ersatz_method($_) for $role->all_ersatz_methods;
 		}
 	}
+	$INC{ Module::Runtime::module_notional_filename(__PACKAGE__) } ||= __FILE__;
 };
 
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToClass;
-	no thanks;
 	our $AUTHORITY = 'cpan:TOBYINK';
 	our $VERSION   = '0.003';
 	use Moose::Role;
@@ -136,11 +138,11 @@ BEGIN {
 		);
 		$role->apply_all_ersatz_methods_to_class($class);
 	};
+	$INC{ Module::Runtime::module_notional_filename(__PACKAGE__) } ||= __FILE__;
 };
 
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToRole;
-	no thanks;
 	our $AUTHORITY = 'cpan:TOBYINK';
 	our $VERSION   = '0.003';
 	use Moose::Role;
@@ -153,14 +155,15 @@ BEGIN {
 		);
 		$role2->add_ersatz_method($_) for $role1->all_ersatz_methods;
 	};
+	$INC{ Module::Runtime::module_notional_filename(__PACKAGE__) } ||= __FILE__;
 };
 
 BEGIN {
 	package MooseX::ErsatzMethod::Trait::ApplicationToInstance;
-	no thanks;
 	our $AUTHORITY = 'cpan:TOBYINK';
 	our $VERSION   = '0.003';
 	use Moose::Role;
+	$INC{ Module::Runtime::module_notional_filename(__PACKAGE__) } ||= __FILE__;
 };
 
 Moose::Exporter->setup_import_methods(

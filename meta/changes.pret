@@ -23,3 +23,10 @@
 		item "Drop the dependency on thanks.pm; use Module::Runtime (which Moose already requires) instead."^^Change;
 		item "use Dist::Inkt."^^Packaging;
 	].
+
+`MooseX-ErsatzMethod 0.005 cpan:TOBYINK`
+	issued  2017-05-21;
+	changeset [
+		item "thanks.pm should still be a testing requirement."^^Packaging;
+		item "Declare minimum version of Perl."^^Packaging;
+	].

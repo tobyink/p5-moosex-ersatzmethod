@@ -5,7 +5,7 @@
 `MooseX-ErsatzMethod`
 	:test-requirement       [ :on "Test::More 0.61"^^:CpanId ];
 	:test-requirement       [ :on "thanks"^^:CpanId ];
-	:runtime-requirement    [ :on "Perl 5.008"^^:CpanId ];
+	:runtime-requirement    [ :on "perl 5.008"^^:CpanId ];
 	:runtime-requirement    [ :on "Moose 2.00"^^:CpanId ];
 	:runtime-requirement    [ :on "Module::Runtime"^^:CpanId ].
 
